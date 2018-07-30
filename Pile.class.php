@@ -1,13 +1,13 @@
 <?php
-namespace Algo\StructureDonnees\StructureLineaire
+namespace Algo\StructureDonnees\StructureLineaire;
+// use Algo\StructureDonnees\StructureLineaire\Cellule;
 
 class Pile {
 
 	private $sommet; // Cellule représentant le sommet de la pile
 
 	public function __construct( ) {
-
-
+		$this->sommet = null;
 	}
 
 
@@ -25,14 +25,14 @@ class Pile {
 		// Sauvegarde de la valeur de la cellule du sommet
 		$ancienSommet = $this->sommet;	
 		// La cellule suivante devient le nouveau sommet
-		$this->sommet = $ancienSommet->getSuivant();
+		$this->sommet = $ancienSommet->getCelluleSuivante();
 		$valeur =  $ancienSommet->getValeur();
 		unset($ancienSommet); // POur gagner de l'espace mémoire
 		return $valeur;
 	}
 
 	public function isVide() {
-		return ($sommet === null);
+		return ($this->sommet === null);
 	}
 
 

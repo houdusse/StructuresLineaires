@@ -1,12 +1,12 @@
 <?php
-namespace Algo\StuctureDonnees\StrutureLineaire\Cellule
+namespace Algo\StructureDonnees\StructureLineaire;
 
-public class Cellule {
+ class Cellule {
 
 	private $valeur;
 	private $celluleSuivante;
 
-	public function __construct($valeur, Cellule $celluleSuivante) {
+	public function __construct($valeur, Cellule $celluleSuivante = null) {
 		$this->valeur = $valeur;
 		$this->celluleSuivante = $celluleSuivante;
 	}
