@@ -1,8 +1,7 @@
 <?php
 namespace Algo\StructureDonnees\StructureLineaire;
-// use Algo\StructureDonnees\StructureLineaire\Cellule;
 
-class List {
+class Liste {
 
 	private $tete; // Cellule représentant le sommet de la File
 	private $queue;
@@ -46,24 +45,32 @@ class List {
 
 	public function supprimeTete() {
 		if ($this->tete === $this->queue) { // Si il n'y à plus qu'un élément
+			$pivot =  $this->tete;
+			$valeur = $pivot->getValeur();
 			unset($this->tete);
+			return $valeur;
 		} else {
 			$pivot = $this->tete;
 			$this->tete = $this->tete->getCellulePrecedente();
-			$this->tete->setCelluleSuivante();
+			$this->tete->setCelluleSuivante(); // Passage à null
+			$valeur = $pivot->getValeur();
 			unset($pivot);
+			return $valeur;
 		}
 	}
 
 
-	public function supprimeQueue {
+	public function supprimeQueue() {
 		if ($this->tete === $this->queue) { // Si il n'y à plus qu'un élément
 			unset($this->queue);
 		} else {
 			$pivot = $this->queue;
 			$this->queue = $this->queue->getCelluleSuivante();
-			$this->tete->setCelluleP();
+			$this->tete->setCellulePrecedente();  // Passage à null
+			$valeur = $pivot->getValeur();
 			unset($pivot);
+			return $valeur;
+
 		}
 	}
 
@@ -73,7 +80,7 @@ class List {
 
 
 	public function isVide() {
-		return ($this->sommet === null);
+		return ($this->tete === null);
 	}
 
 }
